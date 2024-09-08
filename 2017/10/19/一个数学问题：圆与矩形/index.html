@@ -1,0 +1,920 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <!-- 通过cdn引入霞雾文楷字体 -->
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/thefox.png">
+  <link rel="icon" href="/img/thefox.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Frieren">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1 问题 一天傍晚，我给自己的电脑换了一张壁纸。壁纸是暗红色的背景，中间是哈利波特的眼镜👓和他额头上的闪电疤痕。当我用鼠标摁住圆形的眼睛框然后往眼镜框上的另一点移动时，这时出现了一个以鼠标起点和终点为对角线的矩形。 于是我就想到了这个问题： 如果在一个圆上找一定点，记为点A，然后另一个点——动点B——从点A出发，绕圆一周。若以线段AB为对角线作矩形ABCD，则可以得到无数多个这样的矩形。问">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个数学问题：圆与矩形">
+<meta property="og:url" content="http://example.com/2017/10/19/%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98%EF%BC%9A%E5%9C%86%E4%B8%8E%E7%9F%A9%E5%BD%A2/index.html">
+<meta property="og:site_name" content="Frieren&#39;s Blog">
+<meta property="og:description" content="1 问题 一天傍晚，我给自己的电脑换了一张壁纸。壁纸是暗红色的背景，中间是哈利波特的眼镜👓和他额头上的闪电疤痕。当我用鼠标摁住圆形的眼睛框然后往眼镜框上的另一点移动时，这时出现了一个以鼠标起点和终点为对角线的矩形。 于是我就想到了这个问题： 如果在一个圆上找一定点，记为点A，然后另一个点——动点B——从点A出发，绕圆一周。若以线段AB为对角线作矩形ABCD，则可以得到无数多个这样的矩形。问">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/harry_potter_11-wallpaper-1366x768.jpg">
+<meta property="article:published_time" content="2017-10-19T13:29:10.000Z">
+<meta property="article:modified_time" content="2020-04-23T17:08:10.000Z">
+<meta property="article:author" content="Frieren">
+<meta property="article:tag" content="自然科学">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="微积分">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/harry_potter_11-wallpaper-1366x768.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>一个数学问题：圆与矩形 - Frieren&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Frieren&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/harry_potter_11-wallpaper-1366x768.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="一个数学问题：圆与矩形"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2017-10-19 21:29" pubdate>
+          2017年10月19日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="自然科学"
+        id="heading-729609fff739af805c788b1d98c094b4" role="tab" data-toggle="collapse" href="#collapse-729609fff739af805c788b1d98c094b4"
+        aria-expanded="true"
+      >
+        自然科学
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-729609fff739af805c788b1d98c094b4"
+           role="tabpanel" aria-labelledby="heading-729609fff739af805c788b1d98c094b4">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2017/10/19/%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98%EF%BC%9A%E5%9C%86%E4%B8%8E%E7%9F%A9%E5%BD%A2/" title="一个数学问题：圆与矩形"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">一个数学问题：圆与矩形</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">一个数学问题：圆与矩形</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2020年4月24日 凌晨
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="问题">1 问题</h2>
+<p>一天傍晚，我给自己的电脑换了一张壁纸。壁纸是暗红色的背景，中间是哈利波特的眼镜👓和他额头上的闪电疤痕。当我用鼠标摁住圆形的眼睛框然后往眼镜框上的另一点移动时，这时出现了一个以鼠标起点和终点为对角线的矩形。</p>
+<p>于是我就想到了这个问题：</p>
+<p><strong>如果在一个圆上找一定点，记为点A，然后另一个点——动点B——从点A出发，绕圆一周。若以线段AB为对角线作矩形ABCD，则可以得到无数多个这样的矩形。问题是：这些矩形的面积之和是多少？</strong></p>
+<h2 id="求解">2 求解</h2>
+<figure>
+<img
+src="https://gallery-1254425160.cos.ap-guangzhou.myqcloud.com/Post/%E5%8D%95%E4%BD%8D%E5%85%83%E7%9A%84%E4%BE%8B%E5%AD%90.jpg" srcset="/img/loading.gif" lazyload
+alt="单位圆的例子" />
+<figcaption aria-hidden="true">单位圆的例子</figcaption>
+</figure>
+<p>我们可以先使用一个特殊的例子来理解这一问题，然后再由这个例子推向一般情况。于是，我选择了一个<strong>单位圆</strong>
+<span class="math inline">\(x^2+y^2=1\)</span>
+，然后建立直角坐标系，令圆心为原点 <span
+class="math inline">\(O\)</span> ，取<strong>点A</strong>为 <span
+class="math inline">\((1,0)\)</span> ，设<strong>动点B</strong>的坐标为
+<span class="math inline">\((x,y)\)</span>
+。通过观察可知（你可以设置一张有圆的壁纸，然后用鼠标来捣鼓捣鼓～），若B点从A点沿逆时针方向运动，则当B点到达
+<span class="math inline">\((−1,0)\)</span> 时，矩形的面积为0，当B点通过
+<span class="math inline">\((−1,0)\)</span> ，比如说到达了 <span
+class="math inline">\((−\sqrt[] 2,−\sqrt[] 2)\)</span>
+时，此时的矩形面积和B点在 <span class="math inline">\((−\sqrt[]
+2,\sqrt[] 2)\)</span>
+时得到的矩形的面积是一样的。其实不用过多的陈述，稍加观察就可以知道，x
+轴将圆分成了对称的上下两半，而B点在上下两半的圆上运动所能得到的矩形的面积是一样的。也就是说，我们只要计算点B从点A开始逆时针🔄运动到
+<span class="math inline">\((−1,0)\)</span>
+时的所有矩形面积，然后乘以2就行了。思路明确后，剩下来就是计算问题了。</p>
+<p><strong>首先明确一些对象的数学表达。</strong></p>
+<ul>
+<li><p><strong>单位圆的方程</strong>： <span
+class="math inline">\(x^2+y^2=1\)</span></p></li>
+<li><p><strong>动点B的坐标</strong>可以表示为（仅考虑动点B在圆的上半部分运动）：<span
+class="math inline">\((x,\sqrt[] {1−x^2})\)</span></p></li>
+<li><p><strong>一个矩形ABCD的面积</strong>：<span
+class="math inline">\(S_{ABCD}=(1−x)∗\sqrt[] {1−x^2}\)</span></p></li>
+<li><p><strong>所有矩形的面积之和</strong>：</p>
+<p><span class="math inline">\(SS_{ABCD}=2∗\int_{-1}^1 S_{ABCD} {\rm
+d}x=2∗\int_{-1}^1 (1−x)∗\sqrt[] {1−x^2} {\rm d}x\)</span></p></li>
+</ul>
+<p>我们可以使用一些<a
+target="_blank" rel="noopener" href="https://www.geogebra.org/graphing">作图工具</a>把 SABCD
+的图像绘制出来，这样我们对矩形面积的变化会有一个直观的认识。</p>
+<figure>
+<img
+src="https://gallery-1254425160.cos.ap-guangzhou.myqcloud.com/Post/%E7%9F%A9%E5%9E%8B%E9%9D%A2%E7%A7%AF%E7%9A%84%E5%87%BD%E6%95%B0%E5%9B%BE%E5%83%8F.jpg" srcset="/img/loading.gif" lazyload
+alt="矩形面积的函数图像" />
+<figcaption aria-hidden="true">矩形面积的函数图像</figcaption>
+</figure>
+<p>从 <span class="math inline">\(S_{ABCD}=(1−x)∗\sqrt[]
+{1−x^2}\)</span> 的图像可以总结出一些特征：</p>
+<ul>
+<li><p>函数 <span class="math inline">\(S_{ABCD}\)</span>
+的<strong>定义域</strong>为 <span class="math inline">\((−1,1)\)</span>
+；</p></li>
+<li><p>函数 <span class="math inline">\(S_{ABCD}\)</span>
+的<strong>最大值</strong>在 <span class="math inline">\(x=−0.5\)</span>
+时取得；</p></li>
+<li><p><span class="math inline">\(S_{ABCD}(0)=1\)</span> .</p></li>
+</ul>
+<p>如果将 <span class="math inline">\(S_{ABCD}\)</span>
+拓展至一般情形，即 <span class="math inline">\(S_{ABCD}=(r−x)∗\sqrt[]
+{r^2−x^2}\)</span> ，上面的三个特征可以拓展至如下：</p>
+<ul>
+<li><p>函数 <span class="math inline">\(S_{ABCD}\)</span>
+的<strong>定义域</strong>为 <span class="math inline">\((−r,r)\)</span>
+；</p></li>
+<li><p>函数 <span class="math inline">\(S_{ABCD}\)</span>
+的<strong>最大值</strong>在 <span
+class="math inline">\(x=−\frac{r}{2}\)</span> 时取得；</p></li>
+<li><p><span class="math inline">\(S_{ABCD}(0)=r^2\)</span> .</p></li>
+</ul>
+<p><strong>接下来</strong> ，我们需要对 <span
+class="math inline">\(S_{ABCD}=(1−x)∗\sqrt[] {1−x^2}\)</span>
+进行积分。<strong>我们并不需要自己手动计算</strong>，许多网站和软件可以帮助我们做这些工作。我通过<a
+target="_blank" rel="noopener" href="http://zh.numberempire.com/"><strong>数字帝国</strong></a>网站的<a
+target="_blank" rel="noopener" href="http://zh.numberempire.com/integralcalculator.php"><strong>不定积分计算器</strong></a>可以算得其不定积分是：</p>
+<p><span class="math display">\[\int (1−x)∗\sqrt[] {1−x^2} {\rm
+d}x=−\frac{\sqrt[] {1−x^2} * (2x^2-3X-2)-3\arcsin(x)}{6}\]</span></p>
+<p>将情形拓广，对 <span class="math inline">\(S_{ABCD}=(r−x)∗\sqrt[]
+{r^2−x^2}\)</span> 进行积分，可以得到：</p>
+<p><span class="math display">\[\int (r−x)∗\sqrt[] {r^2−x^2}{\rm
+d}x=−\frac{\sqrt[] {r^2−x^2} *
+(2x^2-3X-2)-3r^2\arcsin(\frac{x}{r})}{6}\]</span></p>
+<p>如果对 <span class="math inline">\(S_{ABCD}=(r−x)∗\sqrt[]
+{r^2−x^2}\)</span> 在 <span class="math inline">\((−r,r)\)</span>
+上进行积分，可得：</p>
+<p><span class="math display">\[\int_{-r}^r (r−x)∗\sqrt[] {r^2−x^2} {\rm
+d}x=\left. −\frac{\sqrt[] {r^2−x^2} *
+(2x^2-3X-2)-3r^2\arcsin(\frac{x}{r})}{6}\right| _{-r}^r=
+\frac{r^3}{2}\pi\]</span></p>
+<p><strong>所以</strong> ，</p>
+<p><span class="math display">\[SS_{ABCD}=2∗\int_{-r}^r S_{ABCD} {\rm
+d}x=2∗\int_{-r}^r (r−x)∗\sqrt[] {r^2−x^2} {\rm
+d}x=2*\frac{r^3}{2}\pi=r^3\pi\]</span></p>
+<p><strong>我们并不需要把注意力放在那些长长的算式上</strong>
+，我们只需关注结果就行。一般而言，<span
+class="math inline">\(SS_{ABCD}={r^3}{\pi}\)</span>
+.这也就是说，纵使<strong>动点B</strong>的运动可以产生无数个矩形，但是这<strong>无数</strong>个矩形的面积却是<strong>有限</strong>的，并且这个有限的数只是比圆的面积大
+<span class="math inline">\(r\)</span>
+倍。在我们选取的单位圆特例中，<span class="math inline">\(r=1\)</span>
+,可得 <span class="math inline">\(SS_{ABCD}=\pi=S_{单位圆}\)</span> .
+在单位圆里，这无限个矩形的面积之和甚至不能大于圆的面积，神奇之处还在于它刚好等于单位圆的面积，也就是
+<span class="math inline">\(\pi\)</span> . 这也相当于给了我们一个估算
+<span class="math inline">\(\pi\)</span>
+的途径，我们可以找足够多的矩形出来（找多少个取决于我们希望求得的关于
+<span class="math inline">\(\pi\)</span>
+的精确度），只需把它们的面积加起来就行。此外，因为 <span
+class="math inline">\({r^3}{\pi}\)</span> 里面有 <span
+class="math inline">\(r^3\)</span> ,我们很难不将它和体积联系起来。半径为
+<span class="math inline">\(r\)</span> 的球的体积 <span
+class="math inline">\(V=\frac{4}{3}r^3\pi\)</span>, 所以在半径为 <span
+class="math inline">\(r\)</span>
+的圆上得到的那无数个矩形的面积，和半径为 <span
+class="math inline">\(r\)</span>
+的球的体积只是相差一个常数倍，这个常数是 <span
+class="math inline">\(\frac{4}{3}\)</span> .</p>
+<p>3 后记</p>
+<p>钱德拉塞卡在其所作的名为<a
+target="_blank" rel="noopener" href="http://www.xys.org/xys/ebooks/others/science/philosophy/kexuemei.txt"><strong>《科学中的美和对美的追求》</strong></a>的演讲中旁征博引，他谈到：</p>
+<blockquote>
+<p>戴森曾引用韦尔的话：“<strong>我的劳作是努力把真和美统一起来；如果我不得不选择其中之一，我常常选择美</strong>。”我要问一问戴森：韦尔是否举过他为了美而牺牲真的例子？我了解到韦尔举得例子是他的引力度规论，这个理论是在他的《时空问题》中提出来的。显然，韦尔确信这个理论作为一个引力理论是不真的；但它是那样美以至于他不愿放弃它，因此他为了它的美而不让它消亡。但很久以后，度规不变性的形式系统被纳入量子电动力学，证明韦尔的本能直觉是完全正确的。</p>
+</blockquote>
+<p>然后，他又引用了济慈的话：</p>
+<blockquote>
+<p>正如济慈在很久以前看到的：“<strong>凡想象认作美的东西一定是真理，不论它以前存在与否。</strong>”</p>
+</blockquote>
+<hr />
+<p>最后，我想分享几篇我在写作时参考过的文章：</p>
+<p><a
+target="_blank" rel="noopener" href="http://oiltang.com/2014/05/04/markdown-and-mathjax/"><strong>Markdown输入数学公式</strong></a>，这篇文章讲述了如何使用LaTex编写数学公式，给出了LaTex的许多语法，它们让我轻松地编写本文中的所有公式。</p>
+<p><a
+target="_blank" rel="noopener" href="https://monkey0105.github.io/2017/09/21/hexo-mathjax/"><strong>Hexo博客数学公式显示</strong></a>，这篇文章排版精美，内容全面，从如何在博客中显示公式到如何编写公式一应俱全！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%A6/" class="category-chain-item">自然科学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%A6/" class="print-no-link">#自然科学</a>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6/" class="print-no-link">#数学</a>
+      
+        <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/" class="print-no-link">#微积分</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>一个数学问题：圆与矩形</div>
+      <div>http://example.com/2017/10/19/一个数学问题：圆与矩形/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Frieren</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2017年10月19日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2020年4月24日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/10/31/SWOT%E7%9F%A9%E9%98%B5%EF%BC%9A%E6%88%98%E7%95%A5%E5%8F%8A%E5%85%B6%E4%BE%9D%E6%8D%AE/" title="SWOT矩阵：战略及其依据">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SWOT矩阵：战略及其依据</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2017/09/18/%E4%BD%BF%E7%94%A8%20Hexo+Github%20Pages%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%94%E8%AE%B0/" title="使用 Hexo+Github Pages 搭建个人博客的笔记">
+                        <span class="hidden-mobile">使用 Hexo+Github Pages 搭建个人博客的笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
